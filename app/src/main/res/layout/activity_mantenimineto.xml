@@ -9,54 +9,73 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="28dp"
+        tools:ignore="MissingConstraints">
 
-        <TextView
-            android:id="@+id/textView16"
+        <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="MANTENIMIENTO"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:background="@color/colorPrimaryDark"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:width="100dp"
+                android:text="Moto"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@android:color/background_light"
+                android:textStyle="bold"
+                android:typeface="normal" />
+
+            <Spinner
+                android:theme="@style/Spinner"
+                android:id="@+id/spinner2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView16">
+            android:layout_below="@+id/linearLayout"
+            android:layout_marginTop="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:background="@color/colorPrimary"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:text="Nuevo"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/textView21"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:width="100dp"
-                        android:text="Moto" />
-
-                    <Spinner
-                        android:id="@+id/spinner2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -65,7 +84,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:width="100dp"
-                        android:text="Mantenimiento" />
+                        android:text="Mantenimiento"
+                        android:textColor="@android:color/background_light" />
 
                     <EditText
                         android:id="@+id/editText61"
@@ -74,7 +94,8 @@
                         android:layout_weight="1"
                         android:ems="10"
                         android:hint="Abc"
-                        android:inputType="textPersonName" />
+                        android:inputType="textPersonName"
+                        android:textColor="@android:color/background_light" />
 
                 </LinearLayout>
 
@@ -90,7 +111,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:width="100dp"
-                        android:text="Kilometraje" />
+                        android:text="Kilometraje"
+                        android:textColor="@android:color/background_light" />
 
                     <EditText
                         android:id="@+id/editText6"
@@ -99,7 +121,8 @@
                         android:layout_weight="1"
                         android:ems="10"
                         android:hint="123"
-                        android:inputType="textPersonName" />
+                        android:inputType="textPersonName"
+                        android:textColor="@android:color/background_light" />
 
                 </LinearLayout>
 
@@ -115,7 +138,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:width="100dp"
-                        android:text="Fecha" />
+                        android:text="Fecha"
+                        android:textColor="@android:color/background_light" />
 
                     <EditText
                         android:id="@+id/editText8"
@@ -124,7 +148,8 @@
                         android:layout_weight="1"
                         android:ems="10"
                         android:hint="99/99/9999"
-                        android:inputType="date" />
+                        android:inputType="date"
+                        android:textColor="@android:color/background_light" />
 
                 </LinearLayout>
 
@@ -134,7 +159,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:onClick="guardarMante"
-                    android:text="Guardar" />
+                    android:text="Guardar"
+                    android:textAlignment="center" />
 
             </LinearLayout>
         </ScrollView>
