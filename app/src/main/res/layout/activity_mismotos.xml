@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
-    tools:context="com.devlad.yahtool.ActivityMantenimineto">
-
+    tools:context="com.devlad.yahtool.ActivityMismotos">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -15,9 +14,7 @@
             android:id="@+id/textView16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="MANTENIMIENTO"
+            android:text="AGREGAR MOTO"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
@@ -42,15 +39,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:width="100dp"
-                        android:text="Moto" />
+                        android:text="Nombre" />
 
-                    <Spinner
-                        android:id="@+id/spinner2"
-                        android:layout_width="match_parent"
+                    <EditText
+                        android:id="@+id/editText4"
+                        android:layout_width="400dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="Abc"
+                        android:inputType="textPersonName" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -60,22 +58,19 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView201"
+                        android:id="@+id/textView17"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:width="100dp"
-                        android:text="Mantenimiento" />
+                        android:text="Marca" />
 
-                    <EditText
-                        android:id="@+id/editText61"
-                        android:layout_width="match_parent"
+                    <Spinner
+                        android:id="@+id/spinner"
+                        android:layout_width="400dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:ems="10"
-                        android:hint="Abc"
-                        android:inputType="textPersonName" />
-
+                        android:entries="@array/marcas"
+                        android:spinnerMode="dialog" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -89,18 +84,39 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:width="100dp"
-                        android:text="Kilometraje" />
+                        android:text="Modelo" />
 
                     <EditText
-                        android:id="@+id/editText6"
+                        android:id="@+id/editText3"
+                        android:layout_width="400dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="Abc"
+                        android:inputType="textPersonName" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView18"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Año" />
+
+                    <EditText
+                        android:id="@+id/editText"
+                        android:layout_width="400dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:ems="10"
                         android:hint="123"
-                        android:inputType="textPersonName" />
-
+                        android:inputType="number" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -114,18 +130,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:width="100dp"
-                        android:text="Fecha" />
+                        android:text="Kilometraje" />
 
                     <EditText
-                        android:id="@+id/editText8"
-                        android:layout_width="match_parent"
+                        android:id="@+id/editText2"
+                        android:layout_width="400dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:ems="10"
-                        android:hint="99/99/9999"
-                        android:inputType="date" />
-
+                        android:hint="123"
+                        android:inputType="number" />
                 </LinearLayout>
 
                 <Button
@@ -133,7 +147,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="guardarMante"
+                    android:onClick="guardar"
                     android:text="Guardar" />
 
             </LinearLayout>

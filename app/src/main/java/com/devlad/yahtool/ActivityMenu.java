@@ -22,18 +22,25 @@ public class ActivityMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-          ImageView img = (ImageView) findViewById(R.id.imageView);
+          ImageView img = (ImageView) findViewById(R.id.imageView2);
           img.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
-                  Intent Intent = new Intent(view.getContext(), ActivityDetailCheck.class);
+                  Intent Intent = new Intent(view.getContext(), ActivityYamaha.class );
                   view.getContext().startActivity(Intent);}
           });
-          ImageView img2 = (ImageView) findViewById(R.id.imageView2);
+          ImageView img2 = (ImageView) findViewById(R.id.imageView4);
           img2.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
-                  Intent Intent = new Intent(view.getContext(), ActivityDiag.class);
+                  Intent Intent = new Intent(view.getContext(), ActivityMismotos.class );
+                  view.getContext().startActivity(Intent);}
+          });
+          ImageView img3 = (ImageView) findViewById(R.id.imageView3);
+          img3.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View view) {
+                  Intent Intent = new Intent(view.getContext(), ActivityMantenimineto.class );
                   view.getContext().startActivity(Intent);}
           });
 

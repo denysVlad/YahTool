@@ -22,9 +22,18 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ActivityDiag"
+            android:label="@string/title_activity_diag"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ActivityMantenimineto"
             android:label="@string/title_activity_mante"
             android:theme="@style/AppTheme" />
-        <activity android:name=".ActivityMantenimineto"></activity>
+
+        <activity android:name=".ActivityYamaha"
+            android:label="@string/title_activity_yam"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ActivityMismotos"
+            android:label="@string/title_activity_mot"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

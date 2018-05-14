@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="marcas">
+        <item>AKT</item>
+        <item>Aprilia</item>
+        <item>Bajaj</item>
+        <item>Benelli</item>
+        <item>BMW</item>
+        <item>Ducati</item>
+        <item>Freedom</item>
+        <item>Genesis</item>
+        <item>Hero</item>
+        <item>Harley Davidson</item>
+        <item>Honda</item>
+        <item>Husqvarna</item>
+        <item>Hyosung</item>
+        <item>Jialing</item>
+        <item>Katana</item>
+        <item>Kawasaki</item>
+        <item>Keeway</item>
+        <item>KTM</item>
+        <item>Kymco</item>
+        <item>Loncin</item>
+        <item>Malaguti</item>
+        <item>MV Agusta</item>
+        <item>Piaggio</item>
+        <item>Serpento</item>
+        <item>Sherco</item>
+        <item>Suzuki</item>
+        <item>TVS</item>
+        <item>Triumph</item>
+        <item>UM</item>
+        <item>Vento</item>
+        <item>Vespa</item>
+        <item>Yumbo</item>
+        <item>Yamaha</item>
+        <item>Otra</item>
+</string-array>
+</resources>

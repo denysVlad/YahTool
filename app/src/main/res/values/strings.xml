@@ -3,4 +3,9 @@
     <string name="title_activity_detail">Codigos de Fallas</string>
     <string name="title_activity_diag">Menú de diagnostico</string>
     <string name="title_activity_mante">Mantenimientos</string>
+    <string name="title_activity_yam">Opciones en Yamaha</string>
+    <string name="title_activity_kaw">Opciones en Kawasaki</string>
+    <string name="title_activity_mot">Mis Motos</string>
+
+
 </resources>
