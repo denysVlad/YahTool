@@ -120,10 +120,9 @@ public class FragmentoHistorial extends Fragment {
 
         private Activity context_1;
 
-        private ArrayList<Mantenimientos> Mantenimiento;
-
-        public AdapterViewCustom(Activity context,
-                                 ArrayList<Mantenimientos> mantenimiento) {
+        private ArrayList<ArrayList<Mantenimientos>> Mantenimiento;
+        //List<List<String>>
+        public AdapterViewCustom(Activity context,ArrayList<ArrayList<Mantenimientos>> mantenimiento) {
             context_1 = context;
             this.Mantenimiento = mantenimiento;
         }
@@ -165,9 +164,9 @@ public class FragmentoHistorial extends Fragment {
                 viewHolder = (ViewHolder) convertView.getTag();
             }
 
-            viewHolder.txt.setText(Mantenimiento.get(position).fecha);
-            viewHolder.txt1.setText(Mantenimiento.get(position).mantenimiento );
-            viewHolder.txt2.setText(Mantenimiento.get(position).klm);
+            viewHolder.txt.setText(Mantenimiento.get(5).get(position).fecha);
+            viewHolder.txt1.setText(Mantenimiento.get(3).get(position).mantenimiento );
+            viewHolder.txt2.setText(Mantenimiento.get(4).get(position).klm);
 
             return convertView;
         }
