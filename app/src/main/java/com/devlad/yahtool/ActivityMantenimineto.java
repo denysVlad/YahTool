@@ -1,68 +1,77 @@
 package com.devlad.yahtool;
 
+import android.content.Context;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.Spinner;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 public class ActivityMantenimineto extends AppCompatActivity {
-    Spinner spinner;
-    AdminSQLiteOpenHelper db;
-    List<String> lables;
-    List<List<String>> motos;
 
-    EditText edit8;
+    private Context context;
+    ViewPager vpPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mantenimineto);
-        spinner = (Spinner) findViewById(R.id.spinner2);
-
-        db = new AdminSQLiteOpenHelper(this,
-                "motos", null, 1);
 
 
-        motos = db.extraerMotos();
+        vpPager = (ViewPager) findViewById(R.id.vpPager);
+
+        MyPagerAdapter adapterViewPager = new MyPagerAdapter(getSupportFragmentManager());
+        vpPager.setAdapter(adapterViewPager);
 
 
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, motos.get(1) );
 
 
-        dataAdapter
-                .setDropDownViewResource(android.R.layout.simple_spinner_item);
+    }
 
+    public static class MyPagerAdapter extends FragmentPagerAdapter {
+        private static int NUM_ITEMS = 2;
 
-        spinner.setAdapter(dataAdapter);
-        SimpleDateFormat currentDate = new SimpleDateFormat("dd/MM/yyyy");
-        Date todayDate = new Date();
-        edit8 = (EditText)findViewById(R.id.editText8);
-        edit8.setText(currentDate.format(todayDate));
+        public MyPagerAdapter(FragmentManager fragmentManager) {
+            super(fragmentManager);
+        }
 
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE); /* if you want your item to be white */
+        // Returns total number of pages
+        @Override
+        public int getCount() {
+            return NUM_ITEMS;
+        }
+
+        // Returns the fragment to display for that page
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0: // Fragment # 0 - This will show FirstFragment
+                    return FragmentNuevo.newInstance(0, "Nuevo");
+                case 1: // Fragment # 0 - This will show FirstFragment different title
+                    return FragmentoHistorial.newInstance(1, "Historial");
+
+                default:
+                    return null;
+            }
+        }
+
+        // Returns the page title for the top indicator
+        @Override
+        public CharSequence getPageTitle(int position) {
+            if (position == 0)
+            {
+                return "Nuevo";
+            }
+            else
+            {
+                return "Historial";
             }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
+        }
+
+
     }
-    public void guardarMante(View v)
-    {
-        Toast.makeText(getBaseContext(),"" +  motos.get(0).get(spinner.getSelectedItemPosition()) ,Toast.LENGTH_SHORT ).show();
-    }
+
 }

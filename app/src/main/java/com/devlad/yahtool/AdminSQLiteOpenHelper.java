@@ -33,16 +33,26 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
 
         String selectQuery = "SELECT  * FROM motos";
 
+
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
+        motos.add(new ArrayList<String>());
+        motos.add(new ArrayList<String>());
+        motos.add(new ArrayList<String>());
+        motos.add(new ArrayList<String>());
+        motos.add(new ArrayList<String>());
+        motos.add(new ArrayList<String>());
 
         if (cursor.moveToFirst()) {
             do {
-                motos.add(new ArrayList<String>());
-                motos.add(new ArrayList<String>());
+
                 motos.get(0).add(cursor.getString(0));
                 motos.get(1).add(cursor.getString(1));
+                motos.get(2).add(cursor.getString(2));
+                motos.get(3).add(cursor.getString(3));
+                motos.get(4).add(cursor.getString(4));
+                motos.get(5).add(cursor.getString(5));
 
             } while (cursor.moveToNext());
         }
@@ -52,6 +62,40 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         db.close();
 
         return motos;
+    }
+    public  List<List<String>>  extraerMantenimientos(String id){
+
+        List<List<String>> mante = new ArrayList<List<String>>();
+
+        String selectQuery = "SELECT  * FROM mantenimiento where idMoto = " + id;
+
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        mante.add(new ArrayList<String>());
+        mante.add(new ArrayList<String>());
+        mante.add(new ArrayList<String>());
+        mante.add(new ArrayList<String>());
+        mante.add(new ArrayList<String>());
+
+        if (cursor.moveToFirst()) {
+            do {
+
+                mante.get(0).add(cursor.getString(0));
+                mante.get(1).add(cursor.getString(1));
+                mante.get(2).add(cursor.getString(2));
+                mante.get(3).add(cursor.getString(3));
+                mante.get(4).add(cursor.getString(4));
+
+
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return mante;
     }
 
 }
