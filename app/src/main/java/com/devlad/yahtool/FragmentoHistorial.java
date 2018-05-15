@@ -28,7 +28,8 @@ public class FragmentoHistorial extends Fragment {
     AdminSQLiteOpenHelper dbMotos;
     AdminSQLiteOpenHelper dbMante;
     List<List<String>> motos;
-    List<List<String>> mantenimiento;
+    List<List<String>> mantenimientoBD;
+    ArrayList<Mantenimientos> mantenimiento;
     Spinner spinner;
     Context cont;
     ListView list;
@@ -37,10 +38,10 @@ public class FragmentoHistorial extends Fragment {
     // newInstance constructor for creating fragment with arguments
     public static FragmentoHistorial newInstance(int page, String title) {
         FragmentoHistorial fragmentFirst = new FragmentoHistorial();
-        Bundle args = new Bundle();
-        args.putInt("someInt", page);
-        args.putString("someTitle", title);
-        fragmentFirst.setArguments(args);
+//        Bundle args = new Bundle();
+//        args.putInt("someInt", page);
+//        args.putString("someTitle", title);
+//        fragmentFirst.setArguments(args);
         return fragmentFirst;
     }
 
@@ -87,6 +88,10 @@ public class FragmentoHistorial extends Fragment {
         }
         list = (ListView)getView().findViewById(R.id.List);
 
+        mantenimientoBD = dbMante.extraerMantenimientos(motos.get(0).get(spinner.getSelectedItemPosition()));
+
+        AdapterViewCustom adapter = new AdapterViewCustom(this, mantenimiento);
+        list.setAdapter(adapter);
 
     }
 
@@ -100,7 +105,7 @@ public class FragmentoHistorial extends Fragment {
     }
     public void extraerMante(String id)
     {
-        mantenimiento = dbMante.extraerMantenimientos(motos.get(0).get(spinner.getSelectedItemPosition()));
+
 
     }
     public class Mantenimientos {
@@ -120,16 +125,16 @@ public class FragmentoHistorial extends Fragment {
 
         private Activity context_1;
 
-        private ArrayList<ArrayList<Mantenimientos>> Mantenimiento;
+        private ArrayList<Mantenimientos> Man;
         //List<List<String>>
-        public AdapterViewCustom(Activity context,ArrayList<ArrayList<Mantenimientos>> mantenimiento) {
+        public AdapterViewCustom(Activity context,ArrayList<Mantenimientos> mantenimiento) {
             context_1 = context;
-            this.Mantenimiento = mantenimiento;
+            this.Man = mantenimiento;
         }
 
         @Override
         public int getCount() {
-            return Mantenimiento.size();
+            return Man.size();
         }
 
         @Override
@@ -164,9 +169,9 @@ public class FragmentoHistorial extends Fragment {
                 viewHolder = (ViewHolder) convertView.getTag();
             }
 
-            viewHolder.txt.setText(Mantenimiento.get(5).get(position).fecha);
-            viewHolder.txt1.setText(Mantenimiento.get(3).get(position).mantenimiento );
-            viewHolder.txt2.setText(Mantenimiento.get(4).get(position).klm);
+            viewHolder.txt.setText(Man.get(position).fecha);
+            viewHolder.txt1.setText(Man.get(position).mantenimiento );
+            viewHolder.txt2.setText(Man.get(position).klm);
 
             return convertView;
         }
