@@ -30,7 +30,7 @@ public class ActivityDetailCheck extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_check);
+        setContentView(R.layout.activity_check_yamaha);
 
         llenarListadoCodigos();
 

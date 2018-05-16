@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,9 +80,10 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         mante.add(new ArrayList<String>());
         mante.add(new ArrayList<String>());
 
+
+
         if (cursor.moveToFirst()) {
             do {
-
                 mante.get(0).add(cursor.getString(0));
                 mante.get(1).add(cursor.getString(1));
                 mante.get(2).add(cursor.getString(2));

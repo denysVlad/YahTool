@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class ActivityMismotos extends AppCompatActivity {
     AdminSQLiteOpenHelper admin;
     SQLiteDatabase bd;
@@ -29,21 +31,28 @@ public class ActivityMismotos extends AppCompatActivity {
         EditText nombre = (EditText)findViewById(R.id.editText4);
         EditText kilometraje = (EditText)findViewById(R.id.editText2);
 
-        if (año.getText().toString() != "" || modelo.getText().toString() != "" || nombre.getText().toString() != "" || kilometraje.getText().toString() != "")
+        if (año.getText().toString().equals("") || modelo.getText().toString().equals("")|| nombre.getText().toString().equals("") || kilometraje.getText().toString().equals(""))
+        {
+            new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+                .setTitleText("Oops...")
+                .setContentText("Faltas datos para poder guardar :(")
+                .show();
+        }
+        else
         {
             registro.put("nombre", nombre.getText().toString());
             registro.put("marca", ((Spinner)findViewById(R.id.spinner)).getSelectedItem().toString());
             registro.put("año", año.getText().toString());
             registro.put("kilometraje", kilometraje.getText().toString());
             registro.put("modelo", modelo.getText().toString());
-
             bd.insert("motos", null, registro);
-
-            Toast.makeText(getBaseContext(),"Moto guardada! :D",Toast.LENGTH_SHORT).show();
-        }
-        else
-        {
-            Toast.makeText(getBaseContext(),"Faltas datos para poder guardar la moto :(",Toast.LENGTH_SHORT).show();
+            nombre.setText("");
+            modelo.setText("");
+            kilometraje.setText("");
+            año.setText("");
+            new SweetAlertDialog(this)
+                    .setTitleText("Moto guardada! :D")
+                    .show();
         }
 
 
