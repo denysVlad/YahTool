@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 //import com.google.cloud.translate.Translate;
 //import com.google.cloud.translate.TranslateOptions;
 //import com.google.cloud.translate.Translation;
@@ -33,7 +35,7 @@ public class ActivityMenu extends AppCompatActivity {
           img2.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
-                  Intent Intent = new Intent(view.getContext(), ActivityMismotos.class );
+                  Intent Intent = new Intent(view.getContext(), MainActivity .class );
                   view.getContext().startActivity(Intent);}
           });
           ImageView img3 = (ImageView) findViewById(R.id.imageView3);
@@ -42,6 +44,15 @@ public class ActivityMenu extends AppCompatActivity {
               public void onClick(View view) {
                   Intent Intent = new Intent(view.getContext(), ActivityMantenimineto.class );
                   view.getContext().startActivity(Intent);}
+          });
+          ImageView img4 = (ImageView) findViewById(R.id.imageView);
+          img4.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View view) {
+                  new SweetAlertDialog(view.getContext())
+                          .setTitleText("Coming Soon!")
+                          .show();
+              }
           });
 
     }

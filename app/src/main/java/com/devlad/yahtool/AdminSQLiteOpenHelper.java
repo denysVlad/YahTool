@@ -58,7 +58,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
 
-
+        Log.e("Registros",motos.toString());
         cursor.close();
         db.close();
 

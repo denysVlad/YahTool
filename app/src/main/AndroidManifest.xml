@@ -5,12 +5,12 @@
 
     <application
         android:allowBackup="true"
-        tools:replace="android:icon"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
         <activity android:name=".ActivityMenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,16 +26,18 @@
             android:name=".ActivityDiag"
             android:label="@string/title_activity_diag"
             android:theme="@style/AppTheme" />
-        <activity android:name=".ActivityMantenimineto"
+        <activity
+            android:name=".ActivityMantenimineto"
             android:label="@string/title_activity_mante"
             android:theme="@style/AppTheme" />
-
-        <activity android:name=".ActivityYamaha"
+        <activity
+            android:name=".ActivityYamaha"
             android:label="@string/title_activity_yam"
             android:theme="@style/AppTheme" />
-        <activity android:name=".ActivityMismotos"
-            android:label="@string/title_activity_mot"
-            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
