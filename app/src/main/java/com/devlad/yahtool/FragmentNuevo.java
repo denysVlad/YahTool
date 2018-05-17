@@ -24,19 +24,18 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 
 public class FragmentNuevo extends Fragment {
-    // Store instance variables
-    private String title;
-    private int page;
     AdminSQLiteOpenHelper db;
     AdminSQLiteOpenHelper admin;
     SQLiteDatabase dbMante;
-
     List<List<String>> motos;
     Spinner spinner;
     Context cont;
     Button button;
 EditText edit8;
     TextView tx1;
+    private String title;
+    private int page;
+
     // newInstance constructor for creating fragment with arguments
     public static FragmentNuevo newInstance(int page, String title) {
         FragmentNuevo fragmentFirst = new FragmentNuevo();
@@ -56,13 +55,13 @@ EditText edit8;
         dbMante = admin.getWritableDatabase();
 
         motos = db.extraerMotos();
-        tx1 = (TextView)getView().findViewById(R.id.textView22);
+        tx1 = getView().findViewById(R.id.textView22);
         if (motos.get(0).size() > 0)
         {
             ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(cont,android.R.layout.simple_spinner_item, motos.get(1) );
             dataAdapter
                     .setDropDownViewResource(android.R.layout.simple_spinner_item);
-            spinner = (Spinner)getView(). findViewById(R.id.spinner2);
+            spinner = getView(). findViewById(R.id.spinner2);
             spinner.setAdapter(dataAdapter);
             spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
@@ -86,7 +85,7 @@ EditText edit8;
         }
         SimpleDateFormat currentDate = new SimpleDateFormat("dd/MM/yyyy");
         Date todayDate = new Date();
-        edit8 = (EditText)getView().findViewById(R.id.editText8);
+        edit8 = getView().findViewById(R.id.editText8);
         edit8.setText(currentDate.format(todayDate));
 
     }
@@ -96,7 +95,7 @@ EditText edit8;
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_nuevo_mantenimiento, container, false);
         cont = container.getContext() ;
-        button = (Button) view.findViewById(R.id.buttonG);
+        button = view.findViewById(R.id.buttonG);
         button.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -111,9 +110,9 @@ EditText edit8;
         public void guardar()
         {
             ContentValues registro = new ContentValues();
-            EditText mante = (EditText)getView().findViewById(R.id.editText61);
-            EditText klm = (EditText)getView().findViewById(R.id.editText6);
-            EditText fecha = (EditText)getView().findViewById(R.id.editText8);
+            EditText mante = getView().findViewById(R.id.editText61);
+            EditText klm = getView().findViewById(R.id.editText6);
+            EditText fecha = getView().findViewById(R.id.editText8);
 
             if (mante.getText().toString().equals("") || fecha.getText().toString().equals(""))
             {
