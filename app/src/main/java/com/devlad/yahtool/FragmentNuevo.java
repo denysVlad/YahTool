@@ -36,7 +36,6 @@ EditText edit8;
     private String title;
     private int page;
 
-    // newInstance constructor for creating fragment with arguments
     public static FragmentNuevo newInstance(int page, String title) {
         FragmentNuevo fragmentFirst = new FragmentNuevo();
         return fragmentFirst;
