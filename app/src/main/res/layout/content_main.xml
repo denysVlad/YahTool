@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.devlad.yahtool.MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:context="com.devlad.yahtool.ActivityMisMotos"
+    tools:showIn="@layout/activity_mismotos">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -20,17 +20,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <RelativeLayout
+
+        <ScrollView
             android:id="@+id/layNew"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/transparent"
-            android:padding="30dp"
+            android:background="#c2757575"
             android:visibility="invisible">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="30dp"
                 android:background="@color/button_text_color"
                 android:orientation="vertical"
                 android:padding="15dp"
@@ -187,7 +188,10 @@
 
 
             </LinearLayout>
-        </RelativeLayout>
+        </ScrollView>
+
+
+
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

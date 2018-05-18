@@ -1,8 +1,8 @@
 package com.devlad.yahtool;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -35,7 +35,7 @@ public class ActivityMenu extends AppCompatActivity {
           img2.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
-                  Intent Intent = new Intent(view.getContext(), MainActivity .class );
+                  Intent Intent = new Intent(view.getContext(), ActivityMisMotos.class );
                   view.getContext().startActivity(Intent);}
           });
           ImageView img3 = (ImageView) findViewById(R.id.imageView3);

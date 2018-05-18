@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -15,9 +14,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -25,19 +23,19 @@ import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
-public class MainActivity extends AppCompatActivity {
+public class ActivityMisMotos extends AppCompatActivity {
     AdminSQLiteOpenHelper admin;
     SQLiteDatabase bd;
-    RelativeLayout lynew;
+    ScrollView lynew;
     ListView list;
     List<List<String>> motos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_mismotos);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        lynew = (RelativeLayout)findViewById(R.id.layNew);
+        lynew = (ScrollView)findViewById(R.id.layNew);
         list = (ListView)findViewById(R.id.listMotos);
         admin = new AdminSQLiteOpenHelper(this,
                 "motos", null, 1);
