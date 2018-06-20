@@ -1,4 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layAdapterMoto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal|center"
@@ -8,11 +9,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+
+
         android:layout_height="wrap_content"
-
-
         android:background="@color/colorAccent"
-       android:orientation="horizontal"
+        android:orientation="horizontal"
         android:paddingBottom="5dp"
         android:paddingLeft="5dp"
         android:paddingTop="5dp">
@@ -22,43 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:orientation="vertical"
-            android:paddingRight="10dp">
-
-            <TextView
-                android:id="@+id/textView23"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Nombre:"
-                android:textColor="@color/my_spinner_text_color"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView25"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Marca:"
-                android:textColor="@color/my_spinner_text_color"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView24"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Año:"
-                android:textColor="@color/my_spinner_text_color"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
+            android:minWidth="150dp"
             android:orientation="vertical">
 
             <TextView
@@ -67,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:text="TextView"
                 android:textColor="@color/my_spinner_text_color"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/txtmarca"
@@ -75,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:text="TextView"
                 android:textColor="@color/my_spinner_text_color"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/txtaño"
@@ -83,35 +48,7 @@
                 android:layout_height="wrap_content"
                 android:text="TextView"
                 android:textColor="@color/my_spinner_text_color"
-                android:textSize="14sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:orientation="vertical"
-            android:paddingRight="10dp">
-
-            <TextView
-                android:id="@+id/textView29"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Kilometraje:"
-                android:textColor="@color/my_spinner_text_color"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView30"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Modelo:"
-                android:textColor="@color/my_spinner_text_color"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                android:textSize="16sp" />
 
         </LinearLayout>
 
@@ -128,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:text="TextView"
                 android:textColor="@color/my_spinner_text_color"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/txtmodelo"
@@ -138,7 +75,7 @@
                 android:layout_centerVertical="true"
                 android:text="TextView"
                 android:textColor="@color/my_spinner_text_color"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
 
         </LinearLayout>

@@ -42,6 +42,12 @@
                 android:layout_weight="1"
                 android:theme="@style/Spinner" />
 
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/baseline_autorenew_white_18dp" />
+
         </LinearLayout>
 
         <ListView

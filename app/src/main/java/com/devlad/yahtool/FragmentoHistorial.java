@@ -10,12 +10,16 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import java.util.List;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 
+import java.util.List;
 
 
 public class FragmentoHistorial extends Fragment {
@@ -28,7 +32,7 @@ public class FragmentoHistorial extends Fragment {
 
     List<List<String>> motos;
     List<List<String>> mantenimientoBD;
-
+Button butReload;
     Spinner spinner;
     Context cont;
     ListView list;
@@ -60,6 +64,7 @@ public class FragmentoHistorial extends Fragment {
         dbMotos = new AdminSQLiteOpenHelper(cont,"motos", null, 1);
         dbMante = new AdminSQLiteOpenHelper(cont,"mantenimiento", null, 1);
         motos = dbMotos.extraerMotos();
+
         list = (ListView)getView().findViewById(R.id.List);
         tx1 = (TextView)getView().findViewById(R.id.textView22);
         if (motos.get(0).size() > 0)
@@ -89,10 +94,10 @@ public class FragmentoHistorial extends Fragment {
         }
 
 
-
     }
 public void extraerHistorial()
 {
+
     mantenimientoBD = dbMante.extraerMantenimientos(motos.get(0).get(spinner.getSelectedItemPosition()));
 
     if (mantenimientoBD.get(0).size() > 0) {
@@ -110,8 +115,21 @@ public void extraerHistorial()
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragmento_historial_mantenimiento, container, false);
+        final View view = inflater.inflate(R.layout.fragmento_historial_mantenimiento, container, false);
         cont = container.getContext() ;
+        butReload = view.findViewById(R.id.button3);
+        butReload.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+extraerHistorial();
+            }
+        });
+
+
+
+
         return view;
     }
 
@@ -167,6 +185,19 @@ public void extraerHistorial()
             viewHolder.txt1.setText(Man.get(2).get(position) );
             viewHolder.txt2.setText(Man.get(3).get(position));
 
+            RelativeLayout rL =(RelativeLayout)convertView.findViewById(R.id.layManten);
+            rL.setOnClickListener(new View.OnClickListener()
+                                  {
+                                      @Override
+                                      public void onClick(View v)
+                                      {
+                                          YoYo.with(Techniques.Pulse)
+                                                  .duration(700)
+                                                  .repeat(2)
+                                                  .playOn(convertViewfindViewById(R.id.layManten));
+                                      }
+                                  }
+            );
             return convertView;
         }
 

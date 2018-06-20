@@ -15,9 +15,13 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 
 import java.util.List;
 
@@ -26,6 +30,10 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 public class ActivityMisMotos extends AppCompatActivity {
     AdminSQLiteOpenHelper admin;
     SQLiteDatabase bd;
+
+    AdminSQLiteOpenHelper adminMan;
+    SQLiteDatabase bdMan;
+
     ScrollView lynew;
     ListView list;
     List<List<String>> motos;
@@ -37,8 +45,9 @@ public class ActivityMisMotos extends AppCompatActivity {
         setSupportActionBar(toolbar);
         lynew = (ScrollView)findViewById(R.id.layNew);
         list = (ListView)findViewById(R.id.listMotos);
-        admin = new AdminSQLiteOpenHelper(this,
-                "motos", null, 1);
+
+
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -47,9 +56,15 @@ public class ActivityMisMotos extends AppCompatActivity {
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
 
+                YoYo.with(Techniques.Bounce)
+                        .duration(700)
+                        .repeat(1)
+                        .playOn(findViewById(R.id.layNew));
                 lynew.setVisibility(View.VISIBLE );
+
             }
         });
+
         extraerHistorial();
     }
     public void ocultar(View v)
@@ -66,7 +81,10 @@ public class ActivityMisMotos extends AppCompatActivity {
     }
     public void guardar(View v)
     {
+        admin = new AdminSQLiteOpenHelper(this,
+                "motos", null, 1);
         bd = admin.getWritableDatabase();
+
         ContentValues registro = new ContentValues();
         EditText año = (EditText)findViewById(R.id.editText);
         EditText modelo = (EditText)findViewById(R.id.editText3);
@@ -97,6 +115,7 @@ public class ActivityMisMotos extends AppCompatActivity {
                     .show();
             ocultar(null);
             extraerHistorial();
+
         }
 
 
@@ -159,21 +178,62 @@ public class ActivityMisMotos extends AppCompatActivity {
             viewHolder.txt3.setText(motos.get(4).get(position).toString());
             viewHolder.txt4.setText(motos.get(5).get(position));
 
+            admin = new AdminSQLiteOpenHelper(context_1 ,
+                    "motos", null, 1);
+
+            final SQLiteDatabase db = admin.getReadableDatabase();
+
+           RelativeLayout lL = (RelativeLayout)convertView.findViewById(R.id.layAdapterMoto);
+            lL.setOnClickListener(new View.OnClickListener() {
+                                      @Override
+                                      public void onClick(View v) {
+                                          YoYo.with(Techniques.Pulse)
+                                                  .duration(700)
+                                                  .repeat(2)
+                                                  .playOn(findViewById(R.id.layAdapterMoto));
+                                      }
+                                  }
+            );
+
+
+
+
+
             Button btn = (Button)convertView.findViewById(R.id.button4);
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    View parentRow = (View) view.getParent();
+                    ListView listView = (ListView) parentRow.getParent();
+                    final int position = listView.getPositionForView(parentRow);
+
                     new SweetAlertDialog(context_1, SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("Estas seguro?")
-                            .setContentText("Se borrara el registro")
-                            .setConfirmText("Eliminar!")
-                            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                            .setContentText("Se eliminara permanente!")
+                            .setConfirmText("Si, Eliminar!")
+                            .setConfirmClickListener(
+                                    new SweetAlertDialog.OnSweetClickListener() {
+
                                 @Override
                                 public void onClick(SweetAlertDialog sDialog) {
-                                    sDialog.dismissWithAnimation();
+                                    sDialog
+                                            .setTitleText("Hecho!")
+                                            .setContentText("Eya se ah eliminado!")
+                                            .setConfirmText("OK")
+                                            .setConfirmClickListener(null)
+                                            .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
+
+                                    db.execSQL("DELETE FROM motos WHERE idMoto="+motos.get(0).get(position));
+                                    db.execSQL("DELETE FROM mantenimiento WHERE idMoto="+motos.get(0).get(position));
+                                    extraerHistorial();
                                 }
                             })
                             .show();
+                    YoYo.with(Techniques.Tada)
+                            .duration(700)
+                            .repeat(2)
+                            .playOn(findViewById(R.id.button4));
+
                 }
             });
 
@@ -191,7 +251,10 @@ public class ActivityMisMotos extends AppCompatActivity {
     }
 
     public void extraerHistorial()
+
     {
+        admin = new AdminSQLiteOpenHelper(this,
+                "motos", null, 1);
         motos = admin.extraerMotos();
 
         if (motos.get(0).size() > 0) {
