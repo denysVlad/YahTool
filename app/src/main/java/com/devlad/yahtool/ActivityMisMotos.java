@@ -2,6 +2,7 @@ package com.devlad.yahtool;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -41,15 +42,17 @@ public class ActivityMisMotos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mismotos);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        lynew = (ScrollView)findViewById(R.id.layNew);
-        list = (ListView)findViewById(R.id.listMotos);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 
+        lynew = findViewById(R.id.layNew);
+        list = findViewById(R.id.listMotos);
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,12 +70,18 @@ public class ActivityMisMotos extends AppCompatActivity {
 
         extraerHistorial();
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
     public void ocultar(View v)
     {
-        EditText año = (EditText)findViewById(R.id.editText);
-        EditText modelo = (EditText)findViewById(R.id.editText3);
-        EditText nombre = (EditText)findViewById(R.id.editText4);
-        EditText kilometraje = (EditText)findViewById(R.id.editText2);
+        EditText año = findViewById(R.id.editText);
+        EditText modelo = findViewById(R.id.editText3);
+        EditText nombre = findViewById(R.id.editText4);
+        EditText kilometraje = findViewById(R.id.editText2);
         lynew.setVisibility(View.INVISIBLE );
         nombre.setText("");
         modelo.setText("");
@@ -86,10 +95,10 @@ public class ActivityMisMotos extends AppCompatActivity {
         bd = admin.getWritableDatabase();
 
         ContentValues registro = new ContentValues();
-        EditText año = (EditText)findViewById(R.id.editText);
-        EditText modelo = (EditText)findViewById(R.id.editText3);
-        EditText nombre = (EditText)findViewById(R.id.editText4);
-        EditText kilometraje = (EditText)findViewById(R.id.editText2);
+        EditText año = findViewById(R.id.editText);
+        EditText modelo = findViewById(R.id.editText3);
+        EditText nombre = findViewById(R.id.editText4);
+        EditText kilometraje = findViewById(R.id.editText2);
 
         if (año.getText().toString().equals("") || modelo.getText().toString().equals("")|| nombre.getText().toString().equals("") || kilometraje.getText().toString().equals(""))
         {
@@ -120,6 +129,24 @@ public class ActivityMisMotos extends AppCompatActivity {
 
 
     }
+
+    public void extraerHistorial()
+
+    {
+        admin = new AdminSQLiteOpenHelper(this,
+                "motos", null, 1);
+        motos = admin.extraerMotos();
+
+        if (motos.get(0).size() > 0) {
+            AdapterViewCustomMotos adapter = new AdapterViewCustomMotos(this, motos);
+            list.setAdapter(adapter);
+        } else {
+            list.setAdapter(null);
+
+
+        }
+    }
+
     public class AdapterViewCustomMotos extends BaseAdapter {
 
         Context context_1;
@@ -147,7 +174,7 @@ public class ActivityMisMotos extends AppCompatActivity {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
 
             ViewHolder viewHolder = null;
             if (convertView == null) {
@@ -155,15 +182,15 @@ public class ActivityMisMotos extends AppCompatActivity {
                         R.layout.lay_adapter_motos, null);
                 viewHolder = new ViewHolder();
 
-                viewHolder.txt = (TextView) convertView
+                viewHolder.txt = convertView
                         .findViewById(R.id.txtnombre);
-                viewHolder.txt1 = (TextView) convertView
+                viewHolder.txt1 = convertView
                         .findViewById(R.id.txtmarca);
-                viewHolder.txt2 = (TextView) convertView
+                viewHolder.txt2 = convertView
                         .findViewById(R.id.txtaño);
-                viewHolder.txt3 = (TextView) convertView
+                viewHolder.txt3 = convertView
                         .findViewById(R.id.txtklm );
-                viewHolder.txt4 = (TextView) convertView
+                viewHolder.txt4 = convertView
                         .findViewById(R.id.txtmodelo);
                 convertView.setTag(viewHolder);
             } else {
@@ -175,7 +202,7 @@ public class ActivityMisMotos extends AppCompatActivity {
             viewHolder.txt.setText(motos.get(1).get(position));
             viewHolder.txt1.setText(motos.get(2).get(position));
             viewHolder.txt2.setText(motos.get(3).get(position));
-            viewHolder.txt3.setText(motos.get(4).get(position).toString());
+            viewHolder.txt3.setText("Klm: " + motos.get(4).get(position).toString());
             viewHolder.txt4.setText(motos.get(5).get(position));
 
             admin = new AdminSQLiteOpenHelper(context_1 ,
@@ -183,7 +210,7 @@ public class ActivityMisMotos extends AppCompatActivity {
 
             final SQLiteDatabase db = admin.getReadableDatabase();
 
-           RelativeLayout lL = (RelativeLayout)convertView.findViewById(R.id.layAdapterMoto);
+            RelativeLayout lL = convertView.findViewById(R.id.layAdapterMoto);
             lL.setOnClickListener(new View.OnClickListener() {
                                       @Override
                                       public void onClick(View v) {
@@ -191,15 +218,17 @@ public class ActivityMisMotos extends AppCompatActivity {
                                                   .duration(700)
                                                   .repeat(2)
                                                   .playOn(findViewById(R.id.layAdapterMoto));
+                                          Intent intent = new Intent(ActivityMisMotos.this, ActivityMantenimineto.class);
+                                          intent.putExtra("id", motos.get(0).get(position));
+                                          intent.putExtra("nombre", motos.get(1).get(position));
+                                          startActivity(intent);
+                                          Log.e("naya ", motos.get(0).get(position));
                                       }
                                   }
             );
 
 
-
-
-
-            Button btn = (Button)convertView.findViewById(R.id.button4);
+            Button btn = convertView.findViewById(R.id.button4);
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -246,25 +275,6 @@ public class ActivityMisMotos extends AppCompatActivity {
             public TextView txt2;
             public TextView txt3;
             public TextView txt4;
-
-        }
-    }
-
-    public void extraerHistorial()
-
-    {
-        admin = new AdminSQLiteOpenHelper(this,
-                "motos", null, 1);
-        motos = admin.extraerMotos();
-
-        if (motos.get(0).size() > 0) {
-            AdapterViewCustomMotos adapter = new AdapterViewCustomMotos(this, motos);
-            list.setAdapter(adapter);
-        }
-        else
-        {
-            list.setAdapter(null);
-
 
         }
     }

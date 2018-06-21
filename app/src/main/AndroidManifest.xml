@@ -29,7 +29,7 @@
         <activity
             android:name=".ActivityMantenimineto"
             android:label="@string/title_activity_mante"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ActivityYamaha"
             android:label="@string/title_activity_yam"
@@ -37,7 +37,15 @@
         <activity
             android:name=".ActivityMisMotos"
             android:label="@string/title_activity_mot"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".ActivityNuevo"
+            android:label="@string/title_activity_mot"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>
