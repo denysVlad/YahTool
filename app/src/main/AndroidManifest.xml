@@ -37,15 +37,15 @@
         <activity
             android:name=".ActivityMisMotos"
             android:label="@string/title_activity_mot"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".ActivityNuevo"
             android:label="@string/title_activity_mot"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".ActivityKawa"
+            android:label="@string/title_activity_kawa"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

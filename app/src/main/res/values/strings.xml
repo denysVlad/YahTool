@@ -10,6 +10,48 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_kawa">ActivityKawa</string>
 
-
+    <string-array name="kawaEnglish">
+        <item>11 Main throttle sensor malfunction, wiring open or short</item>
+        <item>12 Inlet air pressure sensor malfunction, wiring open or short</item>
+        <item>13 Inlet air temperature sensor malfunction, wiring open or short</item>
+        <item>14 Water temperature sensor malfunction, wiring open or short</item>
+        <item>15 Atmospheric pressure sensor malfunction, wiring open or short</item>
+        <item>21 Crankshaft sensor malfunction, wiring open or short</item>
+        <item>23 Camshaft position sensor malfunction, wiring open or short</item>
+        <item>24 Speed sensor malfunction</item>
+        <item>31 Vehicle-down sensor malfunction, wiring open or short</item>
+        <item>32 Subthrottle sensor malfunction, wiring open or short</item>
+        <item>34 Exhaust butterfly valve sensor malfunction, wiring open or short</item>
+        <item>35 Immobilizer amplifier malfunction</item>
+        <item>36 Blank key detection</item>
+        <item>51 Stick (Ignition) coil #1 malfunction, wiring open or short</item>
+        <item>52 Stick (Ignition) coil #2 malfunction, wiring open or short</item>
+        <item>53 Stick (Ignition) coil #3 malfunction, wiring open or short</item>
+        <item>54 Stick (Ignition) coil #4 malfunction, wiring open or short</item>
+        <item>62 Subthrottle valve actuator malfunction, wiring open or short</item>
+        <item>63 Exhaust butterfly valve actuator malfunction, wiring open or short</item>
+    </string-array>
+    <string-array name="kawaEspañol">
+        <item>11 Malfuncionamiento del sensor de aceleración principal, cableado abierto o corto</item>
+        <item>12 Mal funcionamiento del sensor de presión de aire de entrada, cableado abierto o corto</item>
+        <item>13 Mal funcionamiento del sensor de temperatura del aire de entrada, cableado abierto o corto</item>
+        <item>14 Mal funcionamiento del sensor de temperatura del agua, cableado abierto o corto</item>
+        <item>15 Mal funcionamiento del sensor de presión atmosférica, cableado abierto o corto</item>
+        <item>21 Malfuncionamiento del sensor del cigüeñal, cableado abierto o corto</item>
+        <item>23 Malfuncionamiento del sensor de posición del árbol de levas, cableado abierto o corto</item>
+        <item>24 Mal funcionamiento del sensor de velocidad</item>
+        <item>31 Malfuncionamiento del sensor del vehículo hacia abajo, cableado abierto o corto</item>
+        <item>32 Mal funcionamiento del sensor del acelerador, cableado abierto o corto</item>
+        <item>34 Malfuncionamiento del sensor de la válvula de mariposa de escape, cableado abierto o corto</item>
+        <item>35 Mal funcionamiento del amplificador del inmovilizador</item>
+        <item>36 Detección de clave en blanco</item>
+        <item>51 Mal funcionamiento de la bobina (encendido) # 1, cableado abierto o corto</item>
+        <item>52 Mal funcionamiento de la bobina (encendido) # 2, cableado abierto o corto</item>
+        <item>53 Mal funcionamiento de la bobina (encendido) n. ° 3, cableado abierto o corto</item>
+        <item>54 Funcionamiento incorrecto de la bobina # 4 (encendido), cableado abierto o corto</item>
+        <item>62 Mal funcionamiento del actuador de la válvula del acelerador, cableado abierto o corto</item>
+        <item>63 Mal funcionamiento del actuador de la válvula de mariposa de escape, cableado abierto o corto</item>
+    </string-array>
 </resources>
