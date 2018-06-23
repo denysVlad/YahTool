@@ -1,12 +1,15 @@
 package com.devlad.yahtool;
 
+import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -66,12 +69,27 @@ public class ActivityNuevo extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
-    }
+    //    @Override
+//    public boolean onSupportNavigateUp() {
+//        Intent resultData = new Intent();
+//        resultData.putExtra("Test", "0");
+//        setResult(Activity.RESULT_OK, resultData);
+//        finish();
+//        return true;
+//    }
+    public boolean onOptionsItemSelected(MenuItem item) {
 
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // back button
+                Intent resultIntent = new Intent();
+                setResult(Activity.RESULT_OK, resultIntent);
+                finish();
+                return true;
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
     public void guardar(String id) {
         ContentValues registro = new ContentValues();
         EditText mante = findViewById(R.id.editText61);
@@ -96,6 +114,7 @@ public class ActivityNuevo extends AppCompatActivity {
             new SweetAlertDialog(cont)
                     .setTitleText("Mantenimiento guardado! :D")
                     .show();
+
         }
 
     }

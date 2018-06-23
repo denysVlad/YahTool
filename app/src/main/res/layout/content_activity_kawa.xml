@@ -8,41 +8,34 @@
     tools:context="com.devlad.yahtool.ActivityKawa"
     tools:showIn="@layout/activity_kawa">
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <LinearLayout
+
+        <Switch
+            android:id="@+id/actionbar_switch3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_alignParentEnd="true"
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
+            android:gravity="right"
+            android:text="Ingles"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="5dp"
+            tools:layout_editor_absoluteY="44dp" />
 
-                <TextView
-                    android:id="@+id/textView22"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:text="Codigos de de Falla Kawasaki"
-                    android:textAlignment="center"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:typeface="normal" />
-            </LinearLayout>
-
-            <ListView
-                android:id="@+id/listKawa"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:entries="@array/kawaEspañol">
+        <ListView
+            android:id="@+id/listKawa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/actionbar_switch3"
+            android:entries="@array/kawaEspañol"
+            app:layout_constraintTop_toBottomOf="@+id/actionbar_switch3"
+            tools:layout_editor_absoluteX="0dp">
 
 
-            </ListView>
+        </ListView>
+    </RelativeLayout>
 
-
-        </LinearLayout>
-    </ScrollView>
 </android.support.constraint.ConstraintLayout>

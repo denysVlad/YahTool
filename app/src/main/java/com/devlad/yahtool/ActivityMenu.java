@@ -9,8 +9,6 @@ import android.widget.ImageView;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 
-import cn.pedant.SweetAlert.SweetAlertDialog;
-
 //import com.google.cloud.translate.Translate;
 //import com.google.cloud.translate.TranslateOptions;
 //import com.google.cloud.translate.Translation;
@@ -27,7 +25,7 @@ public class ActivityMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-          ImageView img = (ImageView) findViewById(R.id.imageView2);
+          ImageView img = findViewById(R.id.imageView2);
 
           img.setOnClickListener(new View.OnClickListener() {
               @Override
@@ -40,7 +38,7 @@ public class ActivityMenu extends AppCompatActivity {
                           .playOn(findViewById(R.id.imageView2));
               }
           });
-          ImageView img2 = (ImageView) findViewById(R.id.imageView4);
+          ImageView img2 = findViewById(R.id.imageView4);
 
           img2.setOnClickListener(new View.OnClickListener() {
               @Override
@@ -53,32 +51,24 @@ public class ActivityMenu extends AppCompatActivity {
                           .playOn(findViewById(R.id.imageView4));
               }
           });
-          ImageView img3 = (ImageView) findViewById(R.id.imageView3);
 
-          img3.setOnClickListener(new View.OnClickListener() {
+
+          ImageView img4 = findViewById(R.id.imageView);
+          img4.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
-                  Intent Intent = new Intent(view.getContext(), ActivityMantenimineto.class );
+                  Intent Intent = new Intent(view.getContext(), ActivityKawa.class);
                   view.getContext().startActivity(Intent);
                   YoYo.with(Techniques.Pulse)
                           .duration(700)
                           .repeat(2)
-                          .playOn(findViewById(R.id.imageView3));
-              }
-          });
-
-          ImageView img4 = (ImageView) findViewById(R.id.imageView);
-          img4.setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View view) {
-                  new SweetAlertDialog(view.getContext())
-                          .setTitleText("Coming Soon!")
-                          .show();
+                          .playOn(findViewById(R.id.imageView));
 
               }
           });
 
-    }
+
+      }
 
 
 

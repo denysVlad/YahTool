@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">YahTool</string>
-    <string name="title_activity_detail">Codigos de Fallas</string>
-    <string name="title_activity_diag">Menú de diagnostico</string>
+    <string name="app_name">MotoGaraje</string>
+    <string name="title_activity_detail">Codigos de Falla Yamaha</string>
+    <string name="title_activity_diag">Menú de diagnostico Yamaha</string>
     <string name="title_activity_mante">Mantenimientos</string>
     <string name="title_activity_yam">Opciones en Yamaha</string>
     <string name="title_activity_kaw">Opciones en Kawasaki</string>
@@ -10,7 +10,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="title_activity_kawa">ActivityKawa</string>
+    <string name="title_activity_kawa">Codigos de Falla Kawasaki</string>
 
     <string-array name="kawaEnglish">
         <item>11 Main throttle sensor malfunction, wiring open or short</item>

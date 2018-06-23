@@ -61,7 +61,6 @@ public class ActivityMantenimineto extends AppCompatActivity {
         nombre = getIntent().getExtras().getString("nombre");
         extraerHistorial(id);
 
-        Log.e("naya ", getIntent().getExtras().getString("id") + " " + getIntent().getExtras().getString("nombre"));
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +79,17 @@ public class ActivityMantenimineto extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // TODO Auto-generated method stub
+        if (data != null) {
+
+            Log.e("naya ", id + " " + data);
+
+            extraerHistorial(id);
+        }
     }
 
     public void extraerHistorial(String id) {

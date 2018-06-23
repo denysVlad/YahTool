@@ -37,6 +37,7 @@
         <activity
             android:name=".ActivityMisMotos"
             android:label="@string/title_activity_mot"
+            android:launchMode="singleTop"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".ActivityNuevo"

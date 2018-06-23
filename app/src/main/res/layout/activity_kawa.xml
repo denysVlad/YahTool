@@ -22,4 +22,12 @@
 
     <include layout="@layout/content_activity_kawa" />
 
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:scaleType="fitEnd"
+        app:srcCompat="@drawable/kawack" />
+
 </android.support.design.widget.CoordinatorLayout>
